@@ -51,13 +51,14 @@ public class ArrayMethods
         for(int i =0; i<values.length; i++)
 
         {
-            temp[i] = values[temp.length-1-i];
+            temp[i] = values[i];
 
         }
+
         for(int i = 1; i <values.length-1;i++){
             if(temp[i-1]>temp[i+1]){
                 values[i]= temp[i-1];
-                
+
             }
             else{
                 values[i]= temp[i+1];
@@ -66,14 +67,80 @@ public class ArrayMethods
         }
 
     }
-    
+
+    public void evenOdd()
+    {
+
+        if(values.length%2==0){
+            //even
+            int element1 = values.length/2;
+            int element2= element1 -1;
+            int[] removed = new int[values.length-2];
+
+            for(int i =0; i<values.length;i++)
+            {
+                if((i!=element1)&&(i!=element2) ){
+                    if(i>element2) 
+                    {
+                        removed[i-2]=values[i];
+
+                    }
+                    else{
+                        removed[i]=values[i];
+
+                    }
+                }
+            }
+
+            values= removed;
+        }
+        else{
+            //odd
+            int element=(int)(values.length/2.0);
+
+            int[] removed = new int[values.length-1];
+
+            for(int i =0; i<values.length;i++)
+            {
+                if(i!=element ){
+                    if(i>element) 
+                    {
+                        removed[i-1]=values[i];
+
+                    }
+                    else{
+                        removed[i]=values[i];
+
+                    }
+                }
+            }
+            values=removed;
+        }
+
+    }
+
     public static void main( String[] args )
     {
-        int[] testValues = { 3, 5, 6, 1 };
+        int[] testValues = { 3, 5, 6, 1,8 };
         ArrayMethods tester = new ArrayMethods( testValues );
         tester.printArray();
-        tester.LargerNeighbor();
+        tester.evenOdd();
         tester.printArray();
 
     }
+    
+    
+    public void moveEvenToFront()
+    {
+        for(int i = 0; i<=values.length-1; i++ )
+        {
+            if (values[i]%2==0){
+                
+
+            }
+
+        }
+    
+    
+}
 }
