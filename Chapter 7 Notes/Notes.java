@@ -28,7 +28,7 @@ public class Notes
          *      int values.
          */
         int[] evens = new int[10];
-        
+
         /*
          * Set the value of each element in the array to the first
          *      10 positive even integers.
@@ -44,17 +44,17 @@ public class Notes
         {
             evens[i] = (i + 1) * 2;
         }
-        
+
         // print the array's elements
         for(int i = 0; i < evens.length; i++)
         {
             System.out.println(i + ": " + evens[i]);
         }
-        
+
         // print the reference to the array
         System.out.println(evens);
     }
-    
+
     public static void createArrayOfOdds()
     {
         /*
@@ -65,10 +65,10 @@ public class Notes
          *      literal.
          */
         int[] odds = { 1, 3, 5, 7, 9, 11, 13, 15, 17, 19 };
-        
+
         // this won't compile
         //odds = { 1, 3, 5 };
-        
+
         /*
          * Bounds Error
          * 
@@ -81,7 +81,7 @@ public class Notes
         {
             //System.out.println(i + ": " + odds[i]);
         }
-        
+
         /*
          * Array References
          * 
@@ -92,10 +92,10 @@ public class Notes
          *      copies the reference, not the array's elements.
          */
         int[] moreOdds = odds;
-        
+
         odds[2] = 6;
         System.out.println(moreOdds[2]);    // prints 6
-        
+
         /*
          * Enhanced For Loop
          *      similar to the "for i in ..." structure in Python
@@ -105,7 +105,7 @@ public class Notes
         {
             System.out.println(number);
         }
-        
+
         /* 
          * Limitation of Enhanced For Loops
          *      The local variable (e.g., number) contains a copy
@@ -118,13 +118,13 @@ public class Notes
             // this doesn't change any element in the array
             number += 1;
         }
-        
+
         for(int number : odds)
         {
             System.out.println(number);
         }
     }
-    
+
     public static void createArrayOfCalendars()
     {
         /*
@@ -136,7 +136,7 @@ public class Notes
          *      new objects and assign to each element.
          */
         GregorianCalendar[] calendars = new GregorianCalendar[12];
-        
+
         /*
          * At this point, every elemetn in the array has a value of
          *      null.
@@ -145,7 +145,7 @@ public class Notes
         {
             System.out.println(calendar);
         }
-        
+
         /*
          * Create a new calendar object and assign to each element
          *      in the array.
@@ -154,12 +154,12 @@ public class Notes
         {
             calendars[i] = new GregorianCalendar(2018, i + 1, 1);
         }
-        
+
         for(GregorianCalendar calendar : calendars)
         {
             System.out.println(calendar);
         }
-        
+
         /*
          * An enahnced for loop cannot modify the value of the 
          *      elements in the array (e.g., references to calendars),
@@ -171,11 +171,11 @@ public class Notes
         {
             calendar.add(GregorianCalendar.DAY_OF_MONTH, 2);
         }
-        
+
         for(GregorianCalendar calendar : calendars)
         {
             System.out.println(calendar);
         }
     }
-
+    
 }
