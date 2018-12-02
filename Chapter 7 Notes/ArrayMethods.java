@@ -118,29 +118,44 @@ public class ArrayMethods
         }
 
     }
-
+    
+    public void moveEvenToFront()
+    {
+        int currentPos=0;
+        for(int i = 0; i<values.length; i++ )
+        {
+            if (values[i]%2==0){
+                 int copy = values[currentPos];
+                 values[currentPos] = values[i];
+                 values[i] = copy;
+                 currentPos++;
+            }
+        }
+    
+    }
+    public void secondLargest()
+    {
+    int max = values[0];
+    int max2=values[0];
+        for (int val : values)
+        {
+            if (max < val)
+            {
+                max2= max;
+                max = val;
+            }
+        }
+        System.out.println("second largest "+ max2);
+    }
     public static void main( String[] args )
     {
         int[] testValues = { 3, 5, 6, 1,8 };
         ArrayMethods tester = new ArrayMethods( testValues );
         tester.printArray();
-        tester.evenOdd();
+        tester.secondLargest();
         tester.printArray();
 
     }
-    
-    
-    public void moveEvenToFront()
-    {
-        for(int i = 0; i<=values.length-1; i++ )
-        {
-            if (values[i]%2==0){
-                
 
-            }
-
-        }
     
-    
-}
 }
