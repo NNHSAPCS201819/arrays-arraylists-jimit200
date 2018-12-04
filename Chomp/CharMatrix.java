@@ -83,9 +83,9 @@ public class CharMatrix
   // lower right corner of the rectangle.
   public void clearRect(int row0, int col0, int row1, int col1)
   {
-    for(int i = row0; i< row1; i ++)
+    for(int i = row0; i<= row1; i ++)
     {
-    for (int j = col0; j< col1;j++)
+    for (int j = col0; j<= col1;j++)
     {
     matrix[i][j] = ' ';
     }
