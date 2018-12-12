@@ -35,9 +35,11 @@ public class Radar
         // initialize the currentScan 2D array and the accumulator 2D array
         
         
-        //
-        // !!! add code here !!!
-        //
+        currentScan = new boolean[rows][cols];
+        accumulator = new int[rows][cols];
+        
+        
+        
         
         
         // randomly set the location of the monster (can be explicity set through the
@@ -64,11 +66,30 @@ public class Radar
         //    5. increment the numScans instance variable
         
         
-        //
-        // !!! add code here !!!
-        //
         
+        for(int i = 0; i<currentScan.length; i++){
         
+            for(int j = 0; i<currentScan[0].length; j++){
+            
+            currentScan[i][j]=false;
+            }
+        }
+        currentScan[monsterLocation.getRow()][monsterLocation.getCol()] = true;
+        this.injectNoise();
+        
+        for(int i = 0;i<currentScan.length; i++){
+        
+            for(int j = 0;i<currentScan[0].length; j++){
+            
+            if (currentScan[i][j]==true){
+            accumulator[i][j]++;
+            
+            }
+            
+            }
+            
+        }
+        numScans++;
     }
 
     /**
@@ -116,9 +137,25 @@ public class Radar
      */
     public Location findMonster()
     {
-        //
-        // !!! add code here !!!
-        //
+        int max = accumulator[0][0];
+        int maxR=0;
+        int maxC=0;
+        
+        for(int i = 0;i<accumulator.length; i++){
+        
+            for(int j = 0;i<accumulator[0].length; j++){
+            
+            if (accumulator[i][j]>max){
+            
+                max=accumulator[i][j];
+                maxR=i;
+                maxC=j;
+            }
+            
+            }
+            
+        }
+        return new Location(maxR,maxC);
     }
     
     /**
@@ -178,9 +215,22 @@ public class Radar
         // be set to false.
         
         
-        //
-        // !!! add code here !!!
-        //
+        for(int i = 0;i<currentScan.length; i++){
+        
+            for(int j = 0;i<currentScan[0].length; j++){
+                double rand = Math.random();
+                
+                if(rand<=noiseFraction){
+                    if(this.monsterLocation.getRow() == i && this.monsterLocation.getCol()==j)
+                    {currentScan[i][j] = false;}
+                    else{
+                        currentScan[i][j] = true;
+                    }
+                    
+                }
+                
+            }
+        }
         
         
     }

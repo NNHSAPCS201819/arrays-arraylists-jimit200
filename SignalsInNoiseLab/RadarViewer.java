@@ -1,5 +1,5 @@
 import javax.swing.JFrame;
-
+import java.util.Scanner;
 /**
  * Class that contains the main method for the program and creates the frame containing the component.
  * 
@@ -22,11 +22,18 @@ public class RadarViewer
         
         // prompt the user to optionally enter the location of the monster
         //  (if they don't, leave the location randomly determined)
+        Scanner s = new Scanner(System.in);
+        System.out.print("Do you want to enter a monster location (y or n): ");
+        String answer = s.next();
+        if(answer.equals("y")||answer.equals("Y")){
         
-        
-        //
-        // !!! add code here !!!
-        //
+            System.out.print("Enter the row number(between 0 and 99): ");
+            int row = s.nextInt();
+            System.out.print("Enter the coloumn number(between 0 and 99): ");
+            int col = s.nextInt();
+            Location loc = new Location(row, col);
+            radar.setMonsterLocation(loc);
+        }
         
         
         radar.scan();
