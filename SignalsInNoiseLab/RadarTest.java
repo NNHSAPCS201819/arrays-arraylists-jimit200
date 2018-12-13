@@ -56,12 +56,23 @@ public class RadarTest
     public void testRadar()
     {
         // test that the Radar class successfully finds the location of the monster after several scans
+        int col = 5;
+        int row = 10;
+        Radar r =new Radar(100,100);
+        Location mons = new Location(row,col);
+        r.setMonsterLocation(mons);
+        for(int i = 0; i < 100; i++)
+        {
+            
+            
+            r.scan();
         
+        }
+        Location find = r.findMonster();
         
-        //
-        // !!! add code here !!!
-        //
+        assertEquals(find.getRow(),row);
         
+        assertEquals(find.getCol(),col);
         
     }
     
@@ -75,10 +86,19 @@ public class RadarTest
     @Test
     public void testFalseNegative()
     {
-        //
-        // !!! add code here !!!
-        //
+        int col = 5;
+        int row = 10;
+        Radar r =new Radar(100,100);
+        Location mons = new Location(row,col);
+        for(int i = 0; i < 100; i++)
+        {
+            
+            
+            r.scan();
         
+        }
+        int triggers = r.getAccumulatedDetection(mons);
         
+        assertTrue(triggers<100);
     }
 }

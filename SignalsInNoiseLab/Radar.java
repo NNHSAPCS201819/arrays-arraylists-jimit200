@@ -68,8 +68,8 @@ public class Radar
         
         
         for(int i = 0; i<currentScan.length; i++){
-        
-            for(int j = 0; i<currentScan[0].length; j++){
+            
+            for(int j = 0; j<currentScan[i].length; j++){
             
             currentScan[i][j]=false;
             }
@@ -79,7 +79,7 @@ public class Radar
         
         for(int i = 0;i<currentScan.length; i++){
         
-            for(int j = 0;i<currentScan[0].length; j++){
+            for(int j = 0;j<currentScan[0].length; j++){
             
             if (currentScan[i][j]==true){
             accumulator[i][j]++;
@@ -143,7 +143,7 @@ public class Radar
         
         for(int i = 0;i<accumulator.length; i++){
         
-            for(int j = 0;i<accumulator[0].length; j++){
+            for(int j = 0;j<accumulator[0].length; j++){
             
             if (accumulator[i][j]>max){
             
@@ -217,7 +217,7 @@ public class Radar
         
         for(int i = 0;i<currentScan.length; i++){
         
-            for(int j = 0;i<currentScan[0].length; j++){
+            for(int j = 0;j<currentScan[0].length; j++){
                 double rand = Math.random();
                 
                 if(rand<=noiseFraction){
