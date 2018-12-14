@@ -1,6 +1,6 @@
 
 /**
- * Write a description of class Location here.
+ * Location object that stores the row and coloumn with get methods
  *
  * @jimit200
  * @12/10/18
@@ -12,6 +12,8 @@ public class Location
     private int col;
     /**
      * Constructor for objects of class Location
+     * @ param initialRow The row of the specified location
+     * @ param initialCol The coloumn of the specified location
      */
     public Location(int initialRow, int initialCol)
     {
@@ -20,19 +22,26 @@ public class Location
     }
 
     /**
-     * An example of a method - replace this comment with your own
+     * returns the row that is stored in the object
      *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * 
+     * @return integer of the row number
      */
     public int getRow()
     {
-        
+
         return row;
     }
+
+    /**
+     * returns the coloumn that is stored in the object
+     *
+     * 
+     * @return integer of the coloumn number
+     */
     public int getCol()
     {
-        
+
         return col;
     }
 }
